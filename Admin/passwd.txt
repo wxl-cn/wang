@@ -1,0 +1,26 @@
+破解linux密码
+开机按"e"键
+找到linux16开头的行
+添加隔断 rd.break console=tty0
+按"Ctrl+x"进入救援模式
+以读写的方式挂载根目录:
+#mount -o remount,rw /sysroot
+切入根目录
+#chroot /sysroot
+修改密码
+#echo 123|passwd --stdin root
+关闭selinux
+vim /etc/selinux/config
+SELINUX=disabled
+
+:wq
+exit
+reboot
+
+
+
+
+
+
+
+
